@@ -18,4 +18,16 @@ class Activity
     @participants.values.sum #omg ruby <3
   end
 
+  def split
+    self.total_cost / @participants.length
+  end
+
+  def owed
+    owed_values = {}
+    @participants.each do |name, val|
+      owed_values[name] = self.split - val
+    end
+    owed_values
+  end
+
 end
